@@ -1,0 +1,13 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+
+{% block form %}
+    {{ parent() }}
+    <script>
+        $(function () {
+            $('.special-field-info').each(function (i) {
+                $('body').find('table tr').eq(i+1).find('td').prepend($(this).html());
+                $(this).remove();
+            })
+        });
+    </script>
+{% endblock %}

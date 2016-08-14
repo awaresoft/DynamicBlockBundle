@@ -1,0 +1,9 @@
+services:
+    awaresoft.dynamic_block.block.dynamic_block:
+        class: Awaresoft\DynamicBlockBundle\Block\DynamicBlockBlock
+        tags:
+            - { name: sonata.block }
+        arguments:
+            - Dynamic Block
+            - "@templating"
+            - "@service_container"

@@ -1,0 +1,7 @@
+dynamic_block:
+    admin:
+        menu:
+            dynamic_blocks: Dynamic Blocks
+            dynamic_blocks_templates: Dynamic Blocks Templates
+            dynamic_blocks_templates_fields: Dynamic Blocks Templates Fields
+            dynamic_blocks_fields: Dynamic Blocks Fields

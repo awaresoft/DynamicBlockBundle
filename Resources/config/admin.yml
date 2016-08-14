@@ -1,0 +1,38 @@
+services:
+    awaresoft.dynamic_block.admin.block:
+        class: Awaresoft\DynamicBlockBundle\Admin\BlockAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin.admin.menu_group_site_builder, label: dynamic_block.admin.menu.dynamic_blocks }
+        arguments:
+            - null
+            - Application\DynamicBlockBundle\Entity\Block
+            - AwaresoftDynamicBlockBundle:BlockCRUD
+        calls:
+            - [ setTemplate, [edit, AwaresoftDynamicBlockBundle:CRUD:edit.html.twig]]
+
+    awaresoft.dynamic_block.admin.template:
+        class: Awaresoft\DynamicBlockBundle\Admin\TemplateAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: setting.admin.menu_group_settings, label: dynamic_block.admin.menu.dynamic_blocks_templates }
+        arguments:
+            - null
+            - Application\DynamicBlockBundle\Entity\Template
+            - AwaresoftDynamicBlockBundle:TemplateCRUD
+
+    awaresoft.dynamic_block.admin.block.fields:
+        class: Awaresoft\DynamicBlockBundle\Admin\BlockHasFieldAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: setting.admin.menu_group_settings, label: dynamic_block.admin.menu.dynamic_blocks_fields }
+        arguments:
+            - null
+            - Application\DynamicBlockBundle\Entity\BlockHasField
+            - null
+
+    awaresoft.dynamic_block.admin.template.fields:
+        class: Awaresoft\DynamicBlockBundle\Admin\TemplateHasFieldAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: setting.admin.menu_group_settings, label: dynamic_block.admin.menu.dynamic_blocks_templates_fields }
+        arguments:
+            - null
+            - Application\DynamicBlockBundle\Entity\TemplateHasField
+            - null

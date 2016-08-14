@@ -1,0 +1,7 @@
+services:
+    awaresoft.dynamic_block.twig.dynamic_block_extension:
+        class: Awaresoft\DynamicBlockBundle\Twig\DynamicBlockExtension
+        tags:
+            - { name: twig.extension }
+        calls:
+            - [ setContainer, ["@service_container"]]

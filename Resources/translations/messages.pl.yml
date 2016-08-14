@@ -1,0 +1,7 @@
+dynamic_block:
+    admin:
+        menu:
+            dynamic_blocks: Bloki dynamiczne
+            dynamic_blocks_templates: Szablony bloków dynamicznych
+            dynamic_blocks_templates_fields: Pola szablonów blocków dynamicznych
+            dynamic_blocks_fields: Pola bloków dynamicznych
