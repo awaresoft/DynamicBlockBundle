@@ -5,7 +5,7 @@ namespace Awaresoft\DynamicBlockBundle\DataFixtures\ORM;
 use Awaresoft\Doctrine\Common\DataFixtures\AbstractFixture as AwaresoftAbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Awaresoft\SettingBundle\Entity\Setting;
-use Awaresoft\SettingBundle\Entity\SettingHasFields;
+use Awaresoft\SettingBundle\Entity\SettingHasField;
 
 /**
  * Class LoadDynamicBlockData
@@ -53,7 +53,7 @@ class LoadDynamicBlockData extends AwaresoftAbstractFixture
             ->setInfo('Dynamic block module parameters.');
         $manager->persist($setting);
 
-        $settingField = new SettingHasFields();
+        $settingField = new SettingHasField();
         $settingField->setSetting($setting);
         $settingField->setName('PROVIDER');
         $settingField->setValue('Awaresoft');
@@ -61,7 +61,7 @@ class LoadDynamicBlockData extends AwaresoftAbstractFixture
         $settingField->setEnabled(true);
         $manager->persist($settingField);
 
-        $settingField = new SettingHasFields();
+        $settingField = new SettingHasField();
         $settingField->setSetting($setting);
         $settingField->setName('BUNDLE');
         $settingField->setValue('DynamicBlockBundle');
@@ -69,7 +69,7 @@ class LoadDynamicBlockData extends AwaresoftAbstractFixture
         $settingField->setEnabled(true);
         $manager->persist($settingField);
 
-        $settingField = new SettingHasFields();
+        $settingField = new SettingHasField();
         $settingField->setSetting($setting);
         $settingField->setName('CONTROLLER');
         $settingField->setValue('DynamicBlock');
@@ -77,7 +77,7 @@ class LoadDynamicBlockData extends AwaresoftAbstractFixture
         $settingField->setEnabled(true);
         $manager->persist($settingField);
 
-        $settingField = new SettingHasFields();
+        $settingField = new SettingHasField();
         $settingField->setSetting($setting);
         $settingField->setName('FORMAT');
         $settingField->setValue('html');
@@ -85,7 +85,7 @@ class LoadDynamicBlockData extends AwaresoftAbstractFixture
         $settingField->setEnabled(true);
         $manager->persist($settingField);
 
-        $settingField = new SettingHasFields();
+        $settingField = new SettingHasField();
         $settingField->setSetting($setting);
         $settingField->setName('ENGINE');
         $settingField->setValue('twig');
