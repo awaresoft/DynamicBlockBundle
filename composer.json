@@ -1,5 +1,5 @@
 {
-    "name": "awaresoft/DynamicBlockBundle",
+    "name": "awaresoft/dynamic-block-bundle",
     "type": "symfony-bundle",
     "description": "Symfony Awaresoft DynamicBlockBundle with Sonata libraries",
     "require": {
