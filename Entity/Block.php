@@ -2,8 +2,6 @@
 
 namespace Awaresoft\DynamicBlockBundle\Entity;
 
-use Application\DynamicBlockBundle\Entity\BlockHasField;
-use Application\DynamicBlockBundle\Entity\Template;
 use Awaresoft\Sonata\PageBundle\Entity\Site;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;

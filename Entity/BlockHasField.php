@@ -86,7 +86,7 @@ class BlockHasField
     }
 
     /**
-     * @return Template
+     * @return Block
      */
     public function getBlock()
     {
