@@ -1,0 +1,7 @@
+{% if fields |length > 1 %}
+    {% for field in fields %}
+        <p>{{ field.content |raw }}</p>
+    {% endfor %}
+{% else %}
+    {{ fields[0].content |raw }}
+{% endif %}
