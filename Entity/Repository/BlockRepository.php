@@ -19,11 +19,17 @@ class BlockRepository extends EntityRepository
      *
      * @return Block
      */
-    public function findOneByNameAndSite($name, SiteInterface $site)
+    public function findOneByNameAndSite($name, SiteInterface $site = null)
     {
-        return $this->findOneBy(array(
-            'name' => $name,
-            'site' => $site,
-        ));
+        $qb = $this->createQueryBuilder('b')
+            ->where('b.name = :name')
+            ->setParameter('name', $name);
+
+        if ($site) {
+            $qb->andWhere('b.site = :site')
+                ->setParameter('site', $site);
+        }
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
 }

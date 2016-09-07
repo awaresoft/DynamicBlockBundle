@@ -16,11 +16,11 @@ class DynamicBlockExtension extends \Twig_Extension
      */
     public function getFunctions()
     {
-        return array(
-            new \Twig_SimpleFunction('display_dynamic_block_content', array($this, 'displayDynamicBlockContent'), array(
-                'is_safe' => array('html'),
-            )),
-        );
+        return [
+            new \Twig_SimpleFunction('display_dynamic_block_content', [$this, 'displayDynamicBlockContent'], [
+                'is_safe' => ['html'],
+            ]),
+        ];
     }
 
     /**
@@ -41,10 +41,13 @@ class DynamicBlockExtension extends \Twig_Extension
         $em = $this->container->get('doctrine.orm.entity_manager');
         $cmsPage = $this->container->get('sonata.page.cms_manager_selector')->retrieve();
         $page = $cmsPage->getCurrentPage();
-        $site = $page->getSite();
+        $site = null;
 
-        $dynamicBlock = $em->getRepository('ApplicationDynamicBlockBundle:Block')
-            ->findOneByNameAndSite($name, $site);
+        if ($page) {
+            $site = $page->getSite();
+        }
+
+        $dynamicBlock = $em->getRepository('ApplicationDynamicBlockBundle:Block')->findOneByNameAndSite($name, $site);
 
         if (!$dynamicBlock) {
             return null;
@@ -52,7 +55,7 @@ class DynamicBlockExtension extends \Twig_Extension
 
         $blockInterface = $this->container->get('sonata.block.context_manager.default');
         $blockService = $this->container->get('awaresoft.dynamic_block.block.dynamic_block');
-        $blockContext = $blockInterface->get(array('type' => 'awaresoft.dynamic_block.block.dynamic_block'));
+        $blockContext = $blockInterface->get(['type' => 'awaresoft.dynamic_block.block.dynamic_block']);
         $blockContext->getBlock()->setSetting('dynamicBlock', $dynamicBlock->getId());
         $blockContent = $blockService->execute($blockContext);
 
