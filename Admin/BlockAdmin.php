@@ -130,7 +130,7 @@ class BlockAdmin extends AwaresoftAbstractAdmin
         }
 
         $formMapper
-            ->add('site', null, array('required' => true, 'read_only' => true));
+            ->add('site', null, array('required' => true, 'attr' => ['readonly' => true]));
 
         $formMapper
             ->end();
